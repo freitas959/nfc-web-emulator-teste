@@ -30,17 +30,42 @@
             color: #fff;
             text-shadow: 0 1px 2px rgba(0,0,0,.5);
         }
+        /* L e R fixados nos cantos superiores da tela, formato pilula */
         .ejs_virtualGamepad_button.cs_snes.b_l,
         .ejs_virtualGamepad_button.cs_snes.b_r {
-            background-color: rgba(40,40,40,.85);
+            position: fixed !important;
+            top: 14px !important;
+            width: 74px !important;
+            height: 38px !important;
+            border-radius: 20px !important;
+            background-color: rgba(60,60,60,.85);
             color: #fff;
-            border-radius: 6px;
+            border: none !important;
+            font-size: 18px !important;
+            line-height: 38px !important;
+            z-index: 20;
         }
+        .ejs_virtualGamepad_button.cs_snes.b_l {
+            left: 14px !important;
+        }
+        .ejs_virtualGamepad_button.cs_snes.b_r {
+            right: 14px !important;
+            left: auto !important;
+        }
+
         .ejs_virtualGamepad_button.cs_snes.b_start,
         .ejs_virtualGamepad_button.cs_snes.b_select {
-            background-color: rgba(40,40,40,.85);
+            background-color: rgba(60,60,60,.85);
             color: #fff;
-            border-radius: 12px;
+            border-radius: 16px;
+            padding: 0 14px;
+        }
+
+        /* Base circular cinza atras do D-pad e do diamante A/B/X/Y */
+        .ejs_virtualGamepad_left,
+        .ejs_virtualGamepad_right {
+            background-color: rgba(50,50,50,.55);
+            border-radius: 50%;
         }
     </style>
 </head>
