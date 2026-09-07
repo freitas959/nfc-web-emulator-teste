@@ -142,22 +142,6 @@
             }
         }
 
-        /* Em retrato, fixa o d-pad/diamante numa distancia previsivel do rodape... */
-        @media (orientation: portrait) {
-            .ejs_virtualGamepad_left,
-            .ejs_virtualGamepad_right {
-                position: fixed !important;
-                top: auto !important;
-                bottom: 14px !important;
-            }
-            /* ...e poe o L/R um pouco acima deles, com folga (valores fixos em px,
-               nao em %, pra nao variar com a altura da tela de cada aparelho) */
-            .ejs_virtualGamepad_button.cs_snes.b_l,
-            .ejs_virtualGamepad_button.cs_snes.b_r {
-                top: auto !important;
-                bottom: 170px !important;
-            }
-        }
     </style>
 </head>
 <body style="margin:0; padding:0; background-color:#000;">
@@ -172,5 +156,55 @@
         EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
     </script>
     <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+    <script>
+        // Em retrato, poe o L/R alguns pixels acima do d-pad/diamante de verdade
+        // (medindo a posicao real deles na tela, em vez de um valor fixo que
+        // varia de aparelho pra aparelho).
+        (function () {
+            var GAP = 16;
+
+            function reposition() {
+                var l = document.querySelector('.b_l');
+                var r = document.querySelector('.b_r');
+                if (!l || !r) return;
+
+                if (!window.matchMedia('(orientation: portrait)').matches) {
+                    l.style.removeProperty('top');
+                    l.style.removeProperty('bottom');
+                    r.style.removeProperty('top');
+                    r.style.removeProperty('bottom');
+                    return;
+                }
+
+                var leftZone = document.querySelector('.ejs_virtualGamepad_left');
+                var rightZone = document.querySelector('.ejs_virtualGamepad_right');
+                if (!leftZone || !rightZone) return;
+                var leftTop = leftZone.getBoundingClientRect().top;
+                var rightTop = rightZone.getBoundingClientRect().top;
+                if (leftTop <= 0 || rightTop <= 0) return;
+
+                var lBottom = Math.round(window.innerHeight - leftTop + GAP);
+                var rBottom = Math.round(window.innerHeight - rightTop + GAP);
+                l.style.setProperty('top', 'auto', 'important');
+                l.style.setProperty('bottom', lBottom + 'px', 'important');
+                r.style.setProperty('top', 'auto', 'important');
+                r.style.setProperty('bottom', rBottom + 'px', 'important');
+            }
+
+            var tries = 0;
+            var poll = setInterval(function () {
+                tries++;
+                reposition();
+                if (tries > 30) clearInterval(poll);
+            }, 300);
+
+            window.addEventListener('resize', function () {
+                setTimeout(reposition, 200);
+            });
+            window.addEventListener('orientationchange', function () {
+                setTimeout(reposition, 300);
+            });
+        })();
+    </script>
 </body>
 </html>
