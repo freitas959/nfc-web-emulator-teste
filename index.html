@@ -119,6 +119,13 @@
                 top: auto !important;
                 bottom: 6px !important;
             }
+            /* Remove o transform do container pai: ele cria um novo referencial de posicao
+               para filhos "fixed", o que bagunca o calculo de left/top deles */
+            .ejs_virtualGamepad_bottom {
+                position: static !important;
+                transform: none !important;
+                left: auto !important;
+            }
             /* Select/Start saem do centro e ficam logo abaixo do L/R, liberando a tela do jogo */
             .ejs_virtualGamepad_button.cs_snes.b_select,
             .ejs_virtualGamepad_button.cs_snes.b_start {
