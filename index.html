@@ -66,13 +66,15 @@
             font-size: 18px;
         }
 
-        /* Container do Select/Start vira flex pra caber os botoes maiores sem sobrepor */
+        /* Container do Select/Start vira flex pra caber os botoes maiores sem sobrepor, centralizado de verdade */
         .ejs_virtualGamepad_bottom {
             display: flex !important;
             width: auto !important;
             gap: 14px !important;
             justify-content: center !important;
             align-items: center !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
         }
         .ejs_virtualGamepad_button.cs_snes.b_start,
         .ejs_virtualGamepad_button.cs_snes.b_select {
@@ -88,6 +90,9 @@
             white-space: nowrap !important;
             box-sizing: content-box !important;
         }
+        /* Ordem correta: SELECT a esquerda, START a direita */
+        .ejs_virtualGamepad_button.cs_snes.b_select { order: 1; }
+        .ejs_virtualGamepad_button.cs_snes.b_start { order: 2; }
 
         /* Base circular cinza atras do D-pad e do diamante A/B/X/Y */
         .ejs_virtualGamepad_left,
