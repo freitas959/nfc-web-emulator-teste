@@ -66,11 +66,22 @@
             font-size: 18px;
         }
 
+        /* Container do Select/Start vira flex pra caber os botoes maiores sem sobrepor */
+        .ejs_virtualGamepad_bottom {
+            display: flex !important;
+            width: auto !important;
+            gap: 14px !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
         .ejs_virtualGamepad_button.cs_snes.b_start,
         .ejs_virtualGamepad_button.cs_snes.b_select {
             background-color: rgba(60,60,60,.85);
             color: #fff;
             border-radius: 16px !important;
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
             width: auto !important;
             min-width: 74px !important;
             padding: 0 16px !important;
