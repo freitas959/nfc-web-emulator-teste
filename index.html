@@ -4,6 +4,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Web Emulador NFC - Teste</title>
+    <style>
+        /* Skin do controle virtual estilo Super Famicom (cores originais) */
+        .ejs_virtualGamepad_button.cs_snes.b_a {
+            background-color: #e0303d;
+            border-radius: 50%;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0,0,0,.5);
+        }
+        .ejs_virtualGamepad_button.cs_snes.b_b {
+            background-color: #f4d93b;
+            border-radius: 50%;
+            color: #3a2f00;
+            text-shadow: none;
+        }
+        .ejs_virtualGamepad_button.cs_snes.b_x {
+            background-color: #1e7fe0;
+            border-radius: 50%;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0,0,0,.5);
+        }
+        .ejs_virtualGamepad_button.cs_snes.b_y {
+            background-color: #2fae4e;
+            border-radius: 50%;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0,0,0,.5);
+        }
+        .ejs_virtualGamepad_button.cs_snes.b_l,
+        .ejs_virtualGamepad_button.cs_snes.b_r {
+            background-color: rgba(40,40,40,.85);
+            color: #fff;
+            border-radius: 6px;
+        }
+        .ejs_virtualGamepad_button.cs_snes.b_start,
+        .ejs_virtualGamepad_button.cs_snes.b_select {
+            background-color: rgba(40,40,40,.85);
+            color: #fff;
+            border-radius: 12px;
+        }
+    </style>
 </head>
 <body style="margin:0; padding:0; background-color:#000;">
     <div style="width:100vw; height:100vh;">
