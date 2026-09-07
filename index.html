@@ -141,6 +141,15 @@
                 left: auto !important;
             }
         }
+
+        /* Em retrato, desce o L/R pra logo acima do d-pad/diamante, liberando a tela do jogo */
+        @media (orientation: portrait) {
+            .ejs_virtualGamepad_button.cs_snes.b_l,
+            .ejs_virtualGamepad_button.cs_snes.b_r {
+                top: auto !important;
+                bottom: 26% !important;
+            }
+        }
     </style>
 </head>
 <body style="margin:0; padding:0; background-color:#000;">
