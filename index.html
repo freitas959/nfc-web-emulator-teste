@@ -142,12 +142,20 @@
             }
         }
 
-        /* Em retrato, desce o L/R pra logo acima do d-pad/diamante, liberando a tela do jogo */
+        /* Em retrato, fixa o d-pad/diamante numa distancia previsivel do rodape... */
         @media (orientation: portrait) {
+            .ejs_virtualGamepad_left,
+            .ejs_virtualGamepad_right {
+                position: fixed !important;
+                top: auto !important;
+                bottom: 14px !important;
+            }
+            /* ...e poe o L/R um pouco acima deles, com folga (valores fixos em px,
+               nao em %, pra nao variar com a altura da tela de cada aparelho) */
             .ejs_virtualGamepad_button.cs_snes.b_l,
             .ejs_virtualGamepad_button.cs_snes.b_r {
                 top: auto !important;
-                bottom: 26% !important;
+                bottom: 170px !important;
             }
         }
     </style>
