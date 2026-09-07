@@ -52,13 +52,30 @@
             right: 14px !important;
             left: auto !important;
         }
+        /* Troca o texto ESQ/DIR (traducao) por L/R */
+        .ejs_virtualGamepad_button.cs_snes.b_l,
+        .ejs_virtualGamepad_button.cs_snes.b_r {
+            font-size: 0 !important;
+        }
+        .ejs_virtualGamepad_button.cs_snes.b_l::after {
+            content: "L";
+            font-size: 18px;
+        }
+        .ejs_virtualGamepad_button.cs_snes.b_r::after {
+            content: "R";
+            font-size: 18px;
+        }
 
         .ejs_virtualGamepad_button.cs_snes.b_start,
         .ejs_virtualGamepad_button.cs_snes.b_select {
             background-color: rgba(60,60,60,.85);
             color: #fff;
-            border-radius: 16px;
-            padding: 0 14px;
+            border-radius: 16px !important;
+            width: auto !important;
+            min-width: 74px !important;
+            padding: 0 16px !important;
+            white-space: nowrap !important;
+            box-sizing: content-box !important;
         }
 
         /* Base circular cinza atras do D-pad e do diamante A/B/X/Y */
@@ -66,6 +83,16 @@
         .ejs_virtualGamepad_right {
             background-color: rgba(50,50,50,.55);
             border-radius: 50%;
+        }
+
+        /* Em paisagem, desce o d-pad e o diamante A/B/X/Y mais para o rodape */
+        @media (orientation: landscape) {
+            .ejs_virtualGamepad_left,
+            .ejs_virtualGamepad_right {
+                position: fixed !important;
+                top: auto !important;
+                bottom: 6px !important;
+            }
         }
     </style>
 </head>
