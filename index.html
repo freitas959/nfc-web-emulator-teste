@@ -75,10 +75,15 @@
             align-items: center !important;
             position: fixed !important;
             top: auto !important;
-            bottom: 58px !important;
+            bottom: 14px !important;
             left: 50% !important;
             margin-left: 0 !important;
             transform: translateX(-50%) !important;
+        }
+        /* Rapido/Lento nao existem no controle original do SNES: removidos */
+        .ejs_virtualGamepad_button.cs_snes.b_speed_fast,
+        .ejs_virtualGamepad_button.cs_snes.b_speed_slow {
+            display: none !important;
         }
         .ejs_virtualGamepad_button.cs_snes.b_start,
         .ejs_virtualGamepad_button.cs_snes.b_select {
